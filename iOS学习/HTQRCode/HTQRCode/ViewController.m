@@ -25,7 +25,7 @@
 {
     
     HTQRCodeCreater *qrCreater = [[HTQRCodeCreater alloc] init];
-    UIImage *QRImage = [qrCreater createQRCodeWithUrlString:@"http://www.jianshu.com/p/4a9e34631ca3" qRCodeSize:100 centerLogo:[UIImage imageNamed:@"IMG_1314.png"] logoSize:30];
+    UIImage *QRImage = [qrCreater createQRCodeWithUrlString:@"http://www.jianshu.com/u/78f00c3457f4" qRCodeSize:180 centerLogo:[UIImage imageNamed:@"IMG_1314.png"] logoSize:40];
     
     UIImageView *QRView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 180, 180)];
     QRView.image = QRImage;
