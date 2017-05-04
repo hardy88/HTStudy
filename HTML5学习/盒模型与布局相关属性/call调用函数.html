@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>call调用函数</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        var each = function(array, fn){
+
+            for(var index in array)
+            {
+                //
+                fn.call(null, index, array[index]);
+            }
+        };
+
+        each([4,20,3], function(index,ele){
+
+                    document.writeln("第"+index+"个元素是:"+ele+"<br />");
+                }
+        );
+
+
+
+        // 我觉得下面这个call函数更好理解些。
+
+        var  myfun = function(a,b){
+            document.writeln("<br/>a的值是:" +a +" b的值是:"+b);
+        }
+        // call方法动态调用函数
+
+        myfun(23,33);
+
+        myfun.call(window, 12, 23);
+
+        myfun.apply(window,[33, 44]);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type"  content="text/html"; charset="UTF-8">
+    <title>面向对象的概念</title>
+</head>
+<body>
+
+    <!-- js不是面向对象的程序设计语言, 面向对象设计的基本特征:继承、多态、封装。而js没有很好的实现继承和多态 -->
+    <!-- js创建一个类时, 得到了一个类的实例, 同时也得到了Object类的实例-->
+
+    <script type="text/javascript">
+
+        function Person(name)
+        {
+            this.name = name;
+        }
+
+        var  p = new Person('Hardy_Hu');
+
+        if (p instanceof Person)
+        {
+            document.writeln("p是Person的实例<br />");
+        }
+        if (p instanceof Object)
+        {
+            document.writeln("p是Object的实例<br />");
+        }
+
+        // 可以看到p既是Person的实例对象, 也是Object的实例对象。
+        // JS不允许开发者指定类与类之间的继承关系。
+            
+    </script>
+
+</body>
+</html>

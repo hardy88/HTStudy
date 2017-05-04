@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>table表格相关元素</title>
+</head>
+<body>
+    <! table 定义表格 类似于 iOS中的UITableView>
+    <table style="width: 400px" border="1">
+        <!-- 整个table的标题,不管在哪个地方添加,它都会被放在最上面-->
+        <caption><b>疯狂Java体系图书</b></caption>
+        <thead>
+            <! table row 一行 >
+            <tr>
+               <!-- 单元格数据, 只是字体表现和td不一样,每组只需要设置一次就好 可以将th当做每组tr的headerView,类似iOS中每个section的headerView-->
+               <th>书名</th>
+               <th>作者</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr>
+             <!-- table data 单元格数据 -->
+             <td>疯狂Java讲义</td>
+             <td>李刚</td>
+           </tr>
+           <tr>
+             <td>轻量级Java EE企业应用实战</td>
+             <td>李刚</td>
+           </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2" style="text-align: right">现总计:2本书</td>
+        </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

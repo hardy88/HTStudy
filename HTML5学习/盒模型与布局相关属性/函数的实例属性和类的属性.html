@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>-方法和+方法</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        function Person(national,age)
+        {
+
+            // 实例变量
+            this.age = age;
+
+            // 类的属性
+            Person.national = national;
+
+            // 好像没有这种写法啊
+            Person.info = function(na)
+            {
+                document.writeln("我的国家是:"+na);
+            }
+        }
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>apply调用函数</title>
+</head>
+<body>
+
+
+    <!-- call 和 apply调用相对于直接调用, 就是多了个windows参数, 及apply调用时将参数放在一个数组里面一次性传递 -->
+
+    <script  class="call调用" type="text/javascript">
+
+
+        // call函数调用
+//        var  myfun = function(a,b){
+//            alert("a的值是:"+a+"\nb的值是:"+b);
+//        }
+//        // call方法动态调用函数
+//        myfun.call(window, 12, 23);
+
+
+
+    </script>
+
+
+    <script class="apply调用" type="text/javascript">
+
+
+        //  看不懂apply 调用的意思
+
+        var example = function(num1, num2){
+
+            document.writeln("num1的值是:"+num1);
+
+            document.writeln("\n");
+
+            document.writeln("num2的值是:"+num2);
+        }
+
+//        example(20, 40);
+
+        // 将参数以arguments一次性地传入。
+        example.apply(window, [12,33]);
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+/* 通过元素这个关键字作为选择器, 起到选择的作用。 是级联选择器的一种 */
+table{
+
+    background-color: #003366;
+    width: 400px;
+}
+
+/* 关键字作为选择器, 起到查找定位的作用 */
+/* 设置每行的属性 */
+td{
+    background-color: #ffffff;
+    font-size: 20pt;
+    text-shadow: -2px 2px 2px #333;
+}

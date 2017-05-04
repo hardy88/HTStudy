@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+
+
+    <!--对象和关联数组-->
+    <title>通过key取值js实例属性</title>
+</head>
+<body>
+
+    <!-- js中对象本质上是一个关联数组, 或者说更像Java里的Map数据结构, 由一组key-value对组成 -->
+
+    <script type="text/javascript">
+
+        function Person(name, age)
+        {
+            this.name = name;
+            this.age = age;
+            this.info = function(){
+
+                alert('info method');
+            }
+        }
+
+
+        var p = new Person('hardy', 30);
+        // 将p当做一个map, 遍历获取其属性
+        for(var keyName in p)
+        {
+            // 如果写成 p.keyName, 浏览器会将keyName当做p的一个属性, 但实际是p并没有keyName这个属性。
+            document.writeln('p对象的' + keyName + '属性值为:'+p[keyName] + '<br />');
+        }
+
+        document.writeln('p对象的' + name + '属性值为:'+p.name + '<br />');
+
+
+    </script>
+
+</body>
+</html>

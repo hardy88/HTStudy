@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4374F5F91D770B920084C69C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4374F5F81D770B920084C69C /* main.m */; };
+		4374F5FC1D770B920084C69C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4374F5FB1D770B920084C69C /* AppDelegate.m */; };
+		4374F6041D770B920084C69C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4374F6031D770B920084C69C /* Assets.xcassets */; };
+		4374F6071D770B920084C69C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4374F6051D770B920084C69C /* LaunchScreen.storyboard */; };
+		4374F6271D77C1FD0084C69C /* HTSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4374F6261D77C1FD0084C69C /* HTSocket.m */; };
+		43FA7A9C1E4B00F400DBC9BB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FA7A9A1E4B00F400DBC9BB /* MainViewController.m */; };
+		43FA7AA41E4BF9E200DBC9BB /* WeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FA7AA31E4BF9E200DBC9BB /* WeChatViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4374F5F41D770B920084C69C /* CF通讯.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CF通讯.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4374F5F81D770B920084C69C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4374F5FA1D770B920084C69C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4374F5FB1D770B920084C69C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4374F6031D770B920084C69C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4374F6061D770B920084C69C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4374F6081D770B920084C69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4374F6251D77C1FD0084C69C /* HTSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSocket.h; sourceTree = "<group>"; };
+		4374F6261D77C1FD0084C69C /* HTSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSocket.m; sourceTree = "<group>"; };
+		43FA7A991E4B00F400DBC9BB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		43FA7A9A1E4B00F400DBC9BB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		43FA7AA21E4BF9E200DBC9BB /* WeChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatViewController.h; sourceTree = "<group>"; };
+		43FA7AA31E4BF9E200DBC9BB /* WeChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4374F5F11D770B920084C69C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4374F5EB1D770B910084C69C = {
+			isa = PBXGroup;
+			children = (
+				4374F5F61D770B920084C69C /* CF通讯 */,
+				4374F5F51D770B920084C69C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4374F5F51D770B920084C69C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4374F5F41D770B920084C69C /* CF通讯.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4374F5F61D770B920084C69C /* CF通讯 */ = {
+			isa = PBXGroup;
+			children = (
+				4374F6241D77C1FD0084C69C /* HTSocketDemo */,
+				4374F5FA1D770B920084C69C /* AppDelegate.h */,
+				4374F5FB1D770B920084C69C /* AppDelegate.m */,
+				43FA7A991E4B00F400DBC9BB /* MainViewController.h */,
+				43FA7A9A1E4B00F400DBC9BB /* MainViewController.m */,
+				43FA7AA21E4BF9E200DBC9BB /* WeChatViewController.h */,
+				43FA7AA31E4BF9E200DBC9BB /* WeChatViewController.m */,
+				4374F6031D770B920084C69C /* Assets.xcassets */,
+				4374F6051D770B920084C69C /* LaunchScreen.storyboard */,
+				4374F6081D770B920084C69C /* Info.plist */,
+				4374F5F71D770B920084C69C /* Supporting Files */,
+			);
+			path = "CF通讯";
+			sourceTree = "<group>";
+		};
+		4374F5F71D770B920084C69C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4374F5F81D770B920084C69C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4374F6241D77C1FD0084C69C /* HTSocketDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4374F6251D77C1FD0084C69C /* HTSocket.h */,
+				4374F6261D77C1FD0084C69C /* HTSocket.m */,
+			);
+			path = HTSocketDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4374F5F31D770B920084C69C /* CF通讯 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4374F60B1D770B920084C69C /* Build configuration list for PBXNativeTarget "CF通讯" */;
+			buildPhases = (
+				4374F5F01D770B920084C69C /* Sources */,
+				4374F5F11D770B920084C69C /* Frameworks */,
+				4374F5F21D770B920084C69C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CF通讯";
+			productName = "CF通讯";
+			productReference = 4374F5F41D770B920084C69C /* CF通讯.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4374F5EC1D770B910084C69C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = hardy;
+				TargetAttributes = {
+					4374F5F31D770B920084C69C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 4374F5EF1D770B910084C69C /* Build configuration list for PBXProject "CF通讯" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4374F5EB1D770B910084C69C;
+			productRefGroup = 4374F5F51D770B920084C69C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4374F5F31D770B920084C69C /* CF通讯 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4374F5F21D770B920084C69C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4374F6071D770B920084C69C /* LaunchScreen.storyboard in Resources */,
+				4374F6041D770B920084C69C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4374F5F01D770B920084C69C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4374F5FC1D770B920084C69C /* AppDelegate.m in Sources */,
+				4374F6271D77C1FD0084C69C /* HTSocket.m in Sources */,
+				4374F5F91D770B920084C69C /* main.m in Sources */,
+				43FA7AA41E4BF9E200DBC9BB /* WeChatViewController.m in Sources */,
+				43FA7A9C1E4B00F400DBC9BB /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4374F6051D770B920084C69C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4374F6061D770B920084C69C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4374F6091D770B920084C69C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4374F60A1D770B920084C69C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4374F60C1D770B920084C69C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CF通讯/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hardy.CF--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4374F60D1D770B920084C69C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CF通讯/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hardy.CF--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4374F5EF1D770B910084C69C /* Build configuration list for PBXProject "CF通讯" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4374F6091D770B920084C69C /* Debug */,
+				4374F60A1D770B920084C69C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4374F60B1D770B920084C69C /* Build configuration list for PBXNativeTarget "CF通讯" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4374F60C1D770B920084C69C /* Debug */,
+				4374F60D1D770B920084C69C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4374F5EC1D770B910084C69C /* Project object */;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>包含选择器</title>
+    <style type="text/css">
+
+        /* 对所有的div元素起作用的CSS样式 */
+        div{
+            width: 350px;
+            height: 60px;
+            background-color: #dddddd;
+            /*设置两个div之间的间隔为5px,如果不设置两个div就挨在一起*/
+            margin: 5px;
+        }
+
+        /* 对处于div之内且类名为a的元素起作用的CSS样式 */
+        div .a{
+
+            width: 200px;
+            height: 35px;
+            border: 2px dotted black;
+            background-color: #888888;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>没有任何属性的div元素</div>
+    <div>
+        <section>
+            <div class="a">处于div内且class属性为a的元素</div>
+        </section>
+    </div>
+
+    <p class="a">没有处于div内,但class属性为a的元素</p>
+
+</body>
+</html>

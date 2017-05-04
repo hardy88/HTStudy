@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		438448DD1E31FED100DD4CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438448DC1E31FED100DD4CAD /* Assets.xcassets */; };
+		438448E01E31FED100DD4CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438448DE1E31FED100DD4CAD /* LaunchScreen.storyboard */; };
+		438449031E3205EB00DD4CAD /* HTBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449021E3205EB00DD4CAD /* HTBaseModel.m */; };
+		438449061E32061E00DD4CAD /* HTBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449051E32061E00DD4CAD /* HTBaseView.m */; };
+		438449091E32063C00DD4CAD /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449081E32063C00DD4CAD /* HTBaseViewController.m */; };
+		4384490E1E3208B400DD4CAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4384490B1E3208B400DD4CAD /* AppDelegate.m */; };
+		438449121E3208C300DD4CAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 438449101E3208C300DD4CAD /* Info.plist */; };
+		438449131E3208C300DD4CAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449111E3208C300DD4CAD /* main.m */; };
+		438449161E34850D00DD4CAD /* RootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449151E34850D00DD4CAD /* RootTabBarViewController.m */; };
+		438449191E34858900DD4CAD /* HTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449181E34858900DD4CAD /* HTHomeViewController.m */; };
+		4384491C1E3485AB00DD4CAD /* HTServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4384491B1E3485AB00DD4CAD /* HTServiceViewController.m */; };
+		4384491F1E3485C600DD4CAD /* HTMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4384491E1E3485C600DD4CAD /* HTMessageViewController.m */; };
+		438449221E3485D400DD4CAD /* HTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449211E3485D400DD4CAD /* HTProfileViewController.m */; };
+		438449251E34909700DD4CAD /* HTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449241E34909700DD4CAD /* HTNavigationController.m */; };
+		438449281E34A9B200DD4CAD /* HTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438449271E34A9B200DD4CAD /* HTVideoViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		438448CD1E31FED100DD4CAD /* HTHXBB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTHXBB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		438448DC1E31FED100DD4CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		438448DF1E31FED100DD4CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		438449011E3205EB00DD4CAD /* HTBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseModel.h; sourceTree = "<group>"; };
+		438449021E3205EB00DD4CAD /* HTBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTBaseModel.m; sourceTree = "<group>"; };
+		438449041E32061E00DD4CAD /* HTBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseView.h; sourceTree = "<group>"; };
+		438449051E32061E00DD4CAD /* HTBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTBaseView.m; sourceTree = "<group>"; };
+		438449071E32063C00DD4CAD /* HTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseViewController.h; sourceTree = "<group>"; };
+		438449081E32063C00DD4CAD /* HTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTBaseViewController.m; sourceTree = "<group>"; };
+		4384490A1E3208B400DD4CAD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4384490B1E3208B400DD4CAD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		438449101E3208C300DD4CAD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		438449111E3208C300DD4CAD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		438449141E34850D00DD4CAD /* RootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarViewController.h; sourceTree = "<group>"; };
+		438449151E34850D00DD4CAD /* RootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarViewController.m; sourceTree = "<group>"; };
+		438449171E34858900DD4CAD /* HTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTHomeViewController.h; sourceTree = "<group>"; };
+		438449181E34858900DD4CAD /* HTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTHomeViewController.m; sourceTree = "<group>"; };
+		4384491A1E3485AB00DD4CAD /* HTServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTServiceViewController.h; sourceTree = "<group>"; };
+		4384491B1E3485AB00DD4CAD /* HTServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTServiceViewController.m; sourceTree = "<group>"; };
+		4384491D1E3485C600DD4CAD /* HTMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMessageViewController.h; sourceTree = "<group>"; };
+		4384491E1E3485C600DD4CAD /* HTMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMessageViewController.m; sourceTree = "<group>"; };
+		438449201E3485D400DD4CAD /* HTProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTProfileViewController.h; sourceTree = "<group>"; };
+		438449211E3485D400DD4CAD /* HTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTProfileViewController.m; sourceTree = "<group>"; };
+		438449231E34909700DD4CAD /* HTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTNavigationController.h; sourceTree = "<group>"; };
+		438449241E34909700DD4CAD /* HTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTNavigationController.m; sourceTree = "<group>"; };
+		438449261E34A9B200DD4CAD /* HTVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTVideoViewController.h; sourceTree = "<group>"; };
+		438449271E34A9B200DD4CAD /* HTVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTVideoViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		438448CA1E31FED100DD4CAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		438448C41E31FED100DD4CAD = {
+			isa = PBXGroup;
+			children = (
+				438448CF1E31FED100DD4CAD /* HTHXBB */,
+				438448CE1E31FED100DD4CAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		438448CE1E31FED100DD4CAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				438448CD1E31FED100DD4CAD /* HTHXBB.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		438448CF1E31FED100DD4CAD /* HTHXBB */ = {
+			isa = PBXGroup;
+			children = (
+				438448E71E31FFA000DD4CAD /* 3rc */,
+				438448E81E31FFA000DD4CAD /* Class */,
+				438448E91E31FFA000DD4CAD /* Image */,
+			);
+			path = HTHXBB;
+			sourceTree = "<group>";
+		};
+		438448E71E31FFA000DD4CAD /* 3rc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = 3rc;
+			sourceTree = "<group>";
+		};
+		438448E81E31FFA000DD4CAD /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				438448F61E32058800DD4CAD /* appdelegate */,
+				438448F71E32058800DD4CAD /* Base */,
+				438448F81E32058800DD4CAD /* Home */,
+				438448F91E32058800DD4CAD /* Message */,
+				438448FA1E32058800DD4CAD /* Profile */,
+				438448FB1E32058800DD4CAD /* Service */,
+				438448FC1E32058800DD4CAD /* Support */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		438448E91E31FFA000DD4CAD /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				438448DE1E31FED100DD4CAD /* LaunchScreen.storyboard */,
+				438448DC1E31FED100DD4CAD /* Assets.xcassets */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		438448F61E32058800DD4CAD /* appdelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4384490A1E3208B400DD4CAD /* AppDelegate.h */,
+				4384490B1E3208B400DD4CAD /* AppDelegate.m */,
+				438449141E34850D00DD4CAD /* RootTabBarViewController.h */,
+				438449151E34850D00DD4CAD /* RootTabBarViewController.m */,
+			);
+			path = appdelegate;
+			sourceTree = "<group>";
+		};
+		438448F71E32058800DD4CAD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				438448FD1E3205D600DD4CAD /* BaseModel */,
+				438448FE1E3205D600DD4CAD /* BaseView */,
+				438448FF1E3205D600DD4CAD /* BaseViewController */,
+				438449001E3205D600DD4CAD /* NetworkRequest */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		438448F81E32058800DD4CAD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				438449171E34858900DD4CAD /* HTHomeViewController.h */,
+				438449181E34858900DD4CAD /* HTHomeViewController.m */,
+				438449261E34A9B200DD4CAD /* HTVideoViewController.h */,
+				438449271E34A9B200DD4CAD /* HTVideoViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		438448F91E32058800DD4CAD /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				4384491D1E3485C600DD4CAD /* HTMessageViewController.h */,
+				4384491E1E3485C600DD4CAD /* HTMessageViewController.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		438448FA1E32058800DD4CAD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				438449201E3485D400DD4CAD /* HTProfileViewController.h */,
+				438449211E3485D400DD4CAD /* HTProfileViewController.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		438448FB1E32058800DD4CAD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4384491A1E3485AB00DD4CAD /* HTServiceViewController.h */,
+				4384491B1E3485AB00DD4CAD /* HTServiceViewController.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		438448FC1E32058800DD4CAD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				438449101E3208C300DD4CAD /* Info.plist */,
+				438449111E3208C300DD4CAD /* main.m */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		438448FD1E3205D600DD4CAD /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				438449011E3205EB00DD4CAD /* HTBaseModel.h */,
+				438449021E3205EB00DD4CAD /* HTBaseModel.m */,
+			);
+			path = BaseModel;
+			sourceTree = "<group>";
+		};
+		438448FE1E3205D600DD4CAD /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				438449041E32061E00DD4CAD /* HTBaseView.h */,
+				438449051E32061E00DD4CAD /* HTBaseView.m */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		438448FF1E3205D600DD4CAD /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				438449071E32063C00DD4CAD /* HTBaseViewController.h */,
+				438449081E32063C00DD4CAD /* HTBaseViewController.m */,
+				438449231E34909700DD4CAD /* HTNavigationController.h */,
+				438449241E34909700DD4CAD /* HTNavigationController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		438449001E3205D600DD4CAD /* NetworkRequest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkRequest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		438448CC1E31FED100DD4CAD /* HTHXBB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 438448E41E31FED100DD4CAD /* Build configuration list for PBXNativeTarget "HTHXBB" */;
+			buildPhases = (
+				438448C91E31FED100DD4CAD /* Sources */,
+				438448CA1E31FED100DD4CAD /* Frameworks */,
+				438448CB1E31FED100DD4CAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTHXBB;
+			productName = HTHXBB;
+			productReference = 438448CD1E31FED100DD4CAD /* HTHXBB.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		438448C51E31FED100DD4CAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = hardy;
+				TargetAttributes = {
+					438448CC1E31FED100DD4CAD = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 438448C81E31FED100DD4CAD /* Build configuration list for PBXProject "HTHXBB" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 438448C41E31FED100DD4CAD;
+			productRefGroup = 438448CE1E31FED100DD4CAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				438448CC1E31FED100DD4CAD /* HTHXBB */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		438448CB1E31FED100DD4CAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				438448E01E31FED100DD4CAD /* LaunchScreen.storyboard in Resources */,
+				438448DD1E31FED100DD4CAD /* Assets.xcassets in Resources */,
+				438449121E3208C300DD4CAD /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		438448C91E31FED100DD4CAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4384491C1E3485AB00DD4CAD /* HTServiceViewController.m in Sources */,
+				4384490E1E3208B400DD4CAD /* AppDelegate.m in Sources */,
+				438449091E32063C00DD4CAD /* HTBaseViewController.m in Sources */,
+				438449251E34909700DD4CAD /* HTNavigationController.m in Sources */,
+				438449031E3205EB00DD4CAD /* HTBaseModel.m in Sources */,
+				438449061E32061E00DD4CAD /* HTBaseView.m in Sources */,
+				438449131E3208C300DD4CAD /* main.m in Sources */,
+				438449221E3485D400DD4CAD /* HTProfileViewController.m in Sources */,
+				438449281E34A9B200DD4CAD /* HTVideoViewController.m in Sources */,
+				438449191E34858900DD4CAD /* HTHomeViewController.m in Sources */,
+				4384491F1E3485C600DD4CAD /* HTMessageViewController.m in Sources */,
+				438449161E34850D00DD4CAD /* RootTabBarViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		438448DE1E31FED100DD4CAD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				438448DF1E31FED100DD4CAD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		438448E21E31FED100DD4CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		438448E31E31FED100DD4CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		438448E51E31FED100DD4CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/HTHXBB/Class/Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hardy.com.HTHXBB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		438448E61E31FED100DD4CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/HTHXBB/Class/Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hardy.com.HTHXBB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		438448C81E31FED100DD4CAD /* Build configuration list for PBXProject "HTHXBB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				438448E21E31FED100DD4CAD /* Debug */,
+				438448E31E31FED100DD4CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		438448E41E31FED100DD4CAD /* Build configuration list for PBXNativeTarget "HTHXBB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				438448E51E31FED100DD4CAD /* Debug */,
+				438448E61E31FED100DD4CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 438448C51E31FED100DD4CAD /* Project object */;
+}

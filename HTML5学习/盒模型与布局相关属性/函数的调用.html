@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的调用</title>
+
+    <!-- call 调用函数-->
+    <script type="text/javascript">
+        <!-- 定义一个each函数 -->
+        var  each = function(array, fn)
+        {
+            for(var  index in array)
+            {
+                fn.call(null, index, array[index]);
+            }
+
+        }
+
+        each([4,20,3], function(index, ele)
+        {
+            document.write("第"+index+"个元素是:"+ele+"<br />");
+        })
+
+
+
+        var myfun = function(a,b){
+            alert("a的值是:" + a + "\nb 的值是:" +b);
+        }
+//       以call方法动态调用函数
+        myfun.call(window, 12, 23);
+        var  example = function(num1,num2){
+            // 直接用arguments代表调用example函数时传入的所有参赛
+            myfun.apply(this, arguments);
+        }
+
+        example(20,40);
+        // 为apply()动态调用传入数组
+        myfun.apply(window, [12,23])
+
+    </script>
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

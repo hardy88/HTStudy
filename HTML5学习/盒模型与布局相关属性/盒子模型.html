@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>盒子模型</title>
+
+    <style type="text/css">
+        body{
+            margin: 0px;
+        }
+
+        div#container{
+            width: 960px;
+            margin: auto;
+        }
+
+        /* inline--box*/
+        div>div{
+            border: 1px solid #aaf;
+            /*inline实现水平布局*/
+            /*inline盒子,显示在一行,只有一行显示不了时才会自动分行显示*/
+            display: inline-block;
+            vertical-align: top;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            border-radius: 12px 12px 0px 0px;
+            background-color: #ffffcc;
+            padding: 0px;
+            /*auto 在描述fram时 相当于 fit*/
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div >
+            没有内容
+        </div>
+
+        <div >
+            没有内容
+        </div>
+
+        <div >
+            没有内容
+        </div>
+    </div>
+
+</body>
+</html>

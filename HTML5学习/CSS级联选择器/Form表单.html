@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+
+    <!-- HTML 使用表单像服务器提交请求, 表单控件主要作用就是收集用户输入 -->
+
+    <title>Form表单</title>
+</head>
+<body>
+
+    <!-- action指定表单被提交到的那个服务器地址  method 指定提交的方式-->
+    <!-- action 和  method为必填项 类似于iOS中AFN请求时  path和请求方法-->
+    <!-- 表单的enctype属性用于指定表单数据的编码方式-->
+    <!-- 在form里面定义一个或多个表单控件时,一旦提交该表单,该表单里的表单控件将会转换成请求参数。 每个name属性的表单控件对应一
+    个请求参数,没有name 属性的表单控件不会生成请求参数-->
+    <form action="http://www.crazyit.org" method="get">
+
+
+        <!-- input 元素是表单控件元素中功能最丰富的,只需要设置下type就可以展示各种不同的外观-->
+        单行文本框:<input id="username" name="username" type="text" /><br />
+
+        不能编辑的文本框:<input id="username2" name="username" type="text" readonly="readonly" /><br />
+
+        密码框:<input id="password" name="password" type="password" /><br/>
+
+        隐藏域: <input id="hidden" name="hidden" type="hidden" /><br />
+
+        第一组单选框:<br />
+        <!-- 单选框 每次只能有一个被选中 -->
+        <input id="color" name="color" type="radio" value="red">
+        <input id="color2" name="color" type="radio" value="green">
+        <input id="color3" name="color" type="radio" value="blue">
+        <br/>
+        第二组单选框:<br/>
+        <input id="gender" name="gender" type="radio" value="male">
+        <input id="gender2" name="gender" type="radio" value="female">
+        <br/>
+
+        两个复选框:<br/>
+        <!-- 复选框可以多选 -->
+        <!-- 选中时 才会上传值-->
+        <input id="website" name="website" type="checkbox" value="leegang.org">
+        <input id="website2" name="website" type="checkbox" value="crazyit.org">
+        <br/>
+
+        <!-- 文件选择非常简单 -->
+        文件上传域:<input id="file" name="file" type="file">
+        <br/>
+
+        图像域:<input type="image" src="AVPlayer.png" width="100" height="100" >
+        <br/>
+
+        下面四个是按钮:<br/>
+        <input id="ok" name="ok" type="submit" value="提交">
+        <input id="dis" name="dis" type="submit" value="重填">
+        <input id="cancel" name="cancel" type="reset" value="重填">
+        <input id="no" name="no" type="button" value="无动作">
+    </form>
+
+
+</body>
+</html>

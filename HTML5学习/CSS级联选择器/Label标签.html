@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Label标签</title>
+</head>
+<body>
+
+    <form action="http://www.crazyit.org" method="get">
+
+        <!-- label就是个普通的文本显示标签, 但因为for熟悉可以关联input的id,所以将label和input关联在一起了,
+        点击label时,input就可以获得焦点-->
+
+        <!-- for关联input, 隐式关联-->
+        <label for="username">单行文本框:</label>
+        <input id="username" name="username" type="text">
+        <br/>
+
+
+        <!-- 在label标签中 嵌套input方式为显示关联, 不建议使用, 有的浏览器支持不是很好 -->
+
+        <label>密码框:<input id="password" name="password" type="password"/></label>
+        <br/>
+        <input id="ok" type="submit" value="登录疯狂java联盟" />
+    </form>
+
+</body>
+</html>

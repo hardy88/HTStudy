@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>函数的定义</title>
+
+
+    <script type="text/javascript">
+
+        //1. 直接定义函数, 定义命名函数
+
+        //  functionName 函数名 方法 类
+        function functionName (parameters){
+            // 函数的实现
+            alert(parameters);
+        }
+
+        // 函数的调用
+        functionName("hardy_hu");
+
+
+        // 2. 定义匿名函数
+        // 将一个匿名函数赋给变量f
+        // 匿名函数: 不带函数名的函数。注意匿名函数就是一个实现体,所以结尾处有;
+        var  f = function(parameters){
+
+            alert(parameters);
+        };
+        // 函数的调用
+        // 你们函数的调用会弹出警告框, 是否禁止此页面弹出对话框
+        f("我是你们函数");
+
+
+        // 3. 使用Function类匿名函数
+        // writeln 就是在屏幕上显示
+        // 传参 + 函数执行体
+        // fun是一个对象
+        var  fun = new Function('name', "document.writeln('Function定义的函数<br/>');" + "document.writeln('你好'+name);");
+
+        fun("hardy_hu");
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>js创建对象的三种方法</title>
+</head>
+<body>
+
+    <!-- js 有三种创建对象的方法: new构造器, Object创建空对象, Json直接创建对象-->
+
+
+    <script type="text/javascript">
+        // 1。 先定义一个类, 然后使用New构造一个对象
+        function Person(name, age)
+        {
+            this.name =  name;
+            this.age= age;
+        }
+
+        // 使用new构造一个对象
+        var  p = new Person('hardy', 30);
+        document.writeln(p.name + '<br/>');
+    </script>
+
+
+    <script type="text/javascript">
+
+        //2. Object创建一个空对象, 然后逐步添加属性和方法
+        var  emptyObject = new Object();
+        // 添加属性
+        emptyObject.name = 'yeeku';
+        emptyObject.age = 29;
+        document.writeln(emptyObject.name + "<br/>");
+
+    </script>
+
+
+    <script type="text/javascript">
+
+        //3. 使用Json语法创建对象
+        var  jsObj = {
+
+            name: 'Vita',
+            age : 24
+        }
+        alert(jsObj.name);
+
+    </script>
+
+
+
+</body>
+</html>

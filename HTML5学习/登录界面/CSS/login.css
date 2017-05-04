@@ -1,0 +1,48 @@
+
+body{
+    background-color: purple; /* 设置整个view的背景色 */
+}
+
+
+.first{
+    margin-top: 15px;  /* 距离顶部15 */
+    background-color: red;  /* 设置当前控件的的背景色 */
+}
+
+.first .second
+{
+    background-color: white;/*登录面板背景颜色为白色*/
+    width: 302px; /*宽度*/
+    text-align: left; /*子空间居中*/
+    margin: 0px auto;/*自身居中*/
+    padding-top: 20px; /*  */
+    padding-bottom: 20px;
+    padding-left: 10px;
+    border: 1px solid #ddd; /* 边框 */
+    /*border-radius: 5px;   /!* 边框弧度 *!/*/
+}
+
+.first .second label
+{
+    line-height: 30px;
+    font-size: 12px;
+
+}
+
+.first .second input
+{
+    display: block;
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.first .login
+{
+    background-color: green;
+    width: 302px;
+    text-align: center; /* 子控件居中 */
+    margin: 0px auto; /* 父控件自身居中 */
+    padding-left: 10px;
+}

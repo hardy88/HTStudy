@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>函数实例属性和类属性</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        function Person(national, age)
+        {
+            // 实例属性
+            this.age= age;
+            // 类属性
+            Person.national= national;
+            // 局部变量, 实例对象不可以访问
+            var  bb =0;
+        }
+
+        var  p = new Person('china', 30);
+
+        document.writeln('实例属性:'+ p.age + '类属性:'+Person.national + '局部变量:'+ p.bb);
+
+    </script>
+
+</body>
+</html>

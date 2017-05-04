@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>函数的独立性</title>
+
+    <script type="text/javascript">
+
+        function Person(name)
+        {
+            this.name = name;
+            // function 具体实现, 将一个匿名函数实现赋给 info
+            this.info = function(){
+                alert("我的name是:" + this.name);
+            }
+        }
+
+        var p =new Person("HARDY_HU");
+        p.info();
+        var  test = "测试名称";
+        p.info.call(window);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

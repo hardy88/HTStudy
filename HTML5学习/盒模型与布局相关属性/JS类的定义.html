@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>JS类的定义</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        function Person (name, age)
+        {
+            this.name = name;
+
+            this.age = age;
+
+            this.info = function(){
+
+                with(document)
+                {
+                    writeln("我的名字是:"+this.name);
+                    writeln("我的年龄是:"+this.age);
+                }
+            };
+
+        }
+
+        // 需要设置属性, 就用类
+        // 如果需要定义方法, 最好将函数当做类来使用
+        var p = new Person("hardy", 29);
+        p.info();
+
+        // 只需要执行结果,就用函数
+        // 如果只是定义一个执行方法,最好就当函数来使用
+        Person("Vita", 24);
+
+    </script>
+
+</body>
+</html>

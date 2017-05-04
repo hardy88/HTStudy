@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>Display属性</title>
+
+    <style type="text/css">
+
+        div{
+            width: 300px;
+            height: 40px;
+            background-color: #ddd;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="button" value="隐藏" onclick="document.getElementById('test1').style.display='none';">
+
+
+    <input type="button" value="显示" onclick="document.getElementById('test1').style.display='';">
+
+    <br/>
+    <div id="test1">
+        使用display控制对象的显示和隐藏
+    </div>
+
+    <!-- className属性怎么无效 ? -->
+    <input type="button" value="隐藏" onclick="document.getElementById('test2').style.visibility='hidden';">
+    <input type="button" value="显示" onclick="document.getElementById('test2').style.visibility='visible'">
+
+    <div id="test2" class="test3">
+        使用visible控制对象的显示和隐藏
+    </div>
+
+</body>
+</html>

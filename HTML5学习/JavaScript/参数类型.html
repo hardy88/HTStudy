@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>函数参数类型</title>
+</head>
+<body>
+
+    <!-- js是弱类型的语言,所以在传参数时,如果参数类型不对,就会出现隐患,,,  -->
+    <!-- js提出了Duck Type的概念, 传参数时, 先判断这个对象是否为该类型, 并判断是否包含了需要访问的属性、方法
+     ,当这些条件都满足时,程序才开始真正处理调用参数的属性、方法-->
+
+    <!-- js只有三种基本类型: boolean,  object, number -->
+    <!-- js函数参数不需要指定类型 -->
+
+    <script type="text/javascript">
+
+        <!-- 入参是 Person类型的实例对象 -->
+        function changeAge(person)
+        {
+            // 1. 要求person必须是对象
+            // 2. person的age属性必须为number
+            if(typeof  person == 'object'
+                && typeof person.age == 'number')
+            {
+                document.write("person的age值为:"+person.age + "<br />");
+            }
+            else
+            {
+                document.writeln("参数类型不符合"+typeof person +"<br />");
+            }
+        }
+
+//        changeAge();
+//        changeAge('xxx');
+//        changeAge(true);
+
+        // 采用Json语法创建一个对象
+//        p = {abc: 34};
+//        changeAge(p);
+
+        // 采用Json语言创建第二个对象
+        person = {age : 34};
+        changeAge(person);
+
+    </script>
+
+</body>
+</html>

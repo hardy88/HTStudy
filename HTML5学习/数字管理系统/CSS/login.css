@@ -1,0 +1,83 @@
+
+html{
+    background-color: #0170a4;
+}
+
+.container{
+    background:url(../Image/login/loginlight.png) no-repeat center center;
+    background-color: #FF9800;
+}
+
+
+.bd{
+    position: absolute;
+    width: 640px;
+    background-color: #CCCCCC;
+}
+/*main*/
+.login-box{
+    /*relative是相对布局*/
+    /*absolute是绝对布局,只会从最左边开始*/
+    position: relative;
+    height: 120px;
+    width: 600px;
+    background-color: aquamarine;
+    margin: 0px auto;
+}
+
+
+/*登录框*/
+.login-username-box{
+    position: relative;
+    height: 30px;
+    width: 160px;
+    background-color: #666666;
+}
+.login-username-box label{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    background-color: #CCC000;
+}
+.login-username-box input{
+    position: relative;
+    height: 30px;
+    width: 100px;
+    background-color: #CCCfff;
+}
+
+.login-password-box{
+    position: absolute;
+    margin: 40px 70px auto;
+    height: 30px;
+    width: auto;
+}
+
+.login-validate-box {
+    position: absolute;
+    margin: 70px 70px auto;
+    height: 30px;
+    width: auto;
+}
+
+.login-validate-box .value-number{
+    position: absolute;
+    margin: 0px 70px auto;
+    height: 30px;
+    background-color: #FF6900;
+}
+
+.style-selecte-box{
+    position: absolute;
+    margin: 10px 300px auto;
+    height: 30px;
+    border:none
+
+}
+
+.login-button{
+    position: absolute;
+    margin: 70px 300px auto;
+    height: 30px;
+    width: 100px;
+}

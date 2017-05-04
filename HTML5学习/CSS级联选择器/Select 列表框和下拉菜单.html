@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title> select 列表框</title>
+</head>
+<body>
+
+    <form action="http://crazyit.org" method="get">
+
+        下面是简单下拉菜单<br/>
+        <!-- 单选框只会显示一行出来 -->
+        <select id="skills"  name="skills">
+            <option value="java">Java语言</option>
+            <option value="C">c语言</option>
+            <option value="ruby">ruby语言</option>
+        </select>
+        <br/>
+        <br/>
+        下面是多选的列表框<br/>
+
+        <!-- 多选框 会全部展示出来 -->
+        <select id="books" name="books" multiple="multiple" size="3">
+            <option value="java">Java语言</option>
+            <option value="C">c语言</option>
+            <option value="ruby">ruby语言</option>
+        </select>
+        <br/>
+
+        下面是允许多选的列表框
+        <select id="leegang" name="leegang" multiple="multiple" size="6">
+            <!-- optgroup 是分组 但所有的groupt都还是一个整体。 -->
+            <optgroup label="疯狂Java体系图书">
+                <option value="java" label="aaaaa">疯狂Java讲义</option>
+                <option value="Android" >疯狂Android讲义</option>
+                <option value="ee" >轻量java ee企业应用实战</option>
+            </optgroup>
+
+            <optgroup label="其他图书">
+                <option value="Struts">Struts 2.1权威指南</option>
+                <option value="ror" >ROR敏捷开发最佳实践</option>
+            </optgroup>
+        </select>
+        <br/>
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>js的伪继承</title>
+</head>
+<body>
+
+    <!-- js不支持继承机制, 通过Prototype实现伪继承,对类实现动态添加属性或方法。 -->
+    <script type="text/javascript">
+
+        function Person(name,age)
+        {
+            this.name = name;
+            this.age = age;
+            this.info = function(){
+                document.writeln("姓名:"+this.name + "<br/>");
+                document.writeln("年龄:"+this.age + "<br/>");
+            }
+        }
+
+
+        var p1 = new Person('hardy', 29);
+        p1.info();
+        // p1无法调用walk方法, 因为暂时没有此方法
+//        p1.walk();
+
+//       prototype动态给Person类添加方法让实例对象去调用, 相当于iOS中类别扩展方法, 所以prototype称为伪继承。
+        Person.prototype.walk = function(){
+
+            document.writeln(this.name + '正在慢慢溜达...' + '<br/>');
+        }
+        // 这时p1可以调用walk方法了。
+        p1.walk();
+
+    </script>
+
+</body>
+</html>

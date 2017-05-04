@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+    <title>滚动条</title>
+
+    <style type="text/css">
+
+        div{
+            width: 300px;
+            height: 70px;
+            border: 1px solid black;
+            white-space: nowrap;
+            margin: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 没有滚动条,文字会超出范围框 -->
+    <div>
+        <h3> 不设置overflow属性</h3>
+        测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+    </div>
+
+    <!-- 隐藏滚动条,文字显示不全-->
+    <div style="overflow: hidden">
+        <h3 >OverFlow:hidden;</h3>
+        测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+    </div >
+
+    <!-- x y轴均有滚动条 -->
+    <div style="overflow: auto">
+        <h3 >OverFlow:auto;</h3>
+        测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+    </div>
+
+    <!-- x轴滚动条 -->
+    <div style="overflow-x: hidden">
+        <h3 >overflow-x:hidden;</h3>
+        测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+    </div>
+
+    <!-- y轴滚动条 -->
+    <div style="overflow-y: hidden">
+        <h3 >overflow-y:hidden;</h3>
+        测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+    </div>
+
+</body>
+</html>
