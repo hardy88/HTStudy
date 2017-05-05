@@ -13,6 +13,7 @@
 		43350CA21EBC11AE0011D892 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43350CA01EBC11AE0011D892 /* Main.storyboard */; };
 		43350CA41EBC11AE0011D892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43350CA31EBC11AE0011D892 /* Assets.xcassets */; };
 		43350CA71EBC11AE0011D892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43350CA51EBC11AE0011D892 /* LaunchScreen.storyboard */; };
+		43350CAF1EBC65970011D892 /* for_test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43350CAE1EBC65970011D892 /* for_test.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		43350CA31EBC11AE0011D892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43350CA61EBC11AE0011D892 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43350CA81EBC11AE0011D892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43350CAE1EBC65970011D892 /* for_test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = for_test.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		43350C961EBC11AE0011D892 /* OpenGLES学习-01 */ = {
 			isa = PBXGroup;
 			children = (
+				43350CAE1EBC65970011D892 /* for_test.jpg */,
 				43350C9A1EBC11AE0011D892 /* AppDelegate.h */,
 				43350C9B1EBC11AE0011D892 /* AppDelegate.m */,
 				43350C9D1EBC11AE0011D892 /* ViewController.h */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43350CA71EBC11AE0011D892 /* LaunchScreen.storyboard in Resources */,
+				43350CAF1EBC65970011D892 /* for_test.jpg in Resources */,
 				43350CA41EBC11AE0011D892 /* Assets.xcassets in Resources */,
 				43350CA21EBC11AE0011D892 /* Main.storyboard in Resources */,
 			);
@@ -309,6 +313,7 @@
 				43350CAD1EBC11AE0011D892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
