@@ -94,6 +94,7 @@
     
     //启动着色器
     [self.effect prepareToDraw];
+    // 绘制三角形
     glDrawArrays(GL_TRIANGLES, 0, 6);
 }
 
