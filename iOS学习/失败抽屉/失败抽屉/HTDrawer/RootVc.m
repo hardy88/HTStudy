@@ -15,6 +15,7 @@
 @interface RootVc ()
 {
     RightVc *rvc;
+    UINavigationController *nvc;
     
 }
 @end
@@ -31,11 +32,13 @@
     
     
     rvc = [[RightVc alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:rvc];
+    nvc= [[UINavigationController alloc] initWithRootViewController:rvc];
     
 
     [self addChildViewController:nvc];
-    [self.view addSubview:rvc.view];
+//    [self.view addSubview:rvc.view];
+    [self.view addSubview:nvc.view];
+    
 
 }
 
@@ -54,16 +57,21 @@
 -(void)closeSide
 {
     [UIView beginAnimations:nil context:nil];
-    rvc.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
-    rvc.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
+//    rvc.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+//    rvc.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
+    nvc.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    nvc.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
     [UIView commitAnimations];
 }
 
 - (void)openSide
 {
     [UIView beginAnimations:nil context:nil];
-    rvc.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1,1);
-    rvc.view.center =  CGPointMake([UIScreen mainScreen].bounds.size.width + [UIScreen mainScreen].bounds.size.width * 1 /2 -100, [UIScreen mainScreen].bounds.size.height / 2);
+//    rvc.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1,1);
+//    rvc.view.center =  CGPointMake([UIScreen mainScreen].bounds.size.width + [UIScreen mainScreen].bounds.size.width * 1 /2 -100, [UIScreen mainScreen].bounds.size.height / 2);
+    
+    nvc.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1,1);
+    nvc.view.center =  CGPointMake([UIScreen mainScreen].bounds.size.width + [UIScreen mainScreen].bounds.size.width * 1 /2 -100, [UIScreen mainScreen].bounds.size.height / 2);
     [UIView commitAnimations];
     
 //    [UIView animateWithDuration:1.5 animations:^{
