@@ -1,0 +1,24 @@
+//
+//  HTPrefixHeader.pch
+//  HXKS
+//
+//  Created by hardy on 2017/5/18.
+//  Copyright © 2017年 胡海涛. All rights reserved.
+//
+
+#ifndef HTPrefixHeader_pch
+#define HTPrefixHeader_pch
+
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "UIColor+tools.h"
+#endif
+
+
+#define SC_WIDTH  [UIScreen mainScreen].bounds.size.width
+#define SC_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+
+#endif /* HTPrefixHeader_pch */
