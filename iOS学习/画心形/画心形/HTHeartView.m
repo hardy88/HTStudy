@@ -24,7 +24,7 @@
     [path addQuadCurveToPoint:CGPointMake(self.frame.size.width / 2, self.frame.size.height -2*SPACE) controlPoint:CGPointMake( self.frame.size.width - SPACE, self.frame.size.height *0.6)];
     [path addQuadCurveToPoint:CGPointMake(SPACE, radius + SPACE ) controlPoint:CGPointMake(SPACE, self.frame.size.height *0.6)];
     [path setLineCapStyle:kCGLineCapRound];
-    
+
     [path setLineWidth:1];
     [[UIColor redColor] set];
     

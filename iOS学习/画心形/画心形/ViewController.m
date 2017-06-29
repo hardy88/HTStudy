@@ -24,9 +24,13 @@
 
     
 
-    HTTringleView *VC = [[HTTringleView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-49 - [UIScreen mainScreen].bounds.size.width/5,  [UIScreen mainScreen].bounds.size.width, 49 + [UIScreen mainScreen].bounds.size.width/5)];
-   
-    [self.view addSubview:VC];
+//    HTTringleView *VC = [[HTTringleView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-49 - [UIScreen mainScreen].bounds.size.width/5,  [UIScreen mainScreen].bounds.size.width, 49 + [UIScreen mainScreen].bounds.size.width/5)];
+//   
+//    [self.view addSubview:VC];
+    
+    HTHeartView *hview = [[HTHeartView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    
+    [self.view addSubview:hview];
     
 
 }

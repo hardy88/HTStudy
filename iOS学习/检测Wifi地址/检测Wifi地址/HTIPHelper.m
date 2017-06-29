@@ -10,7 +10,6 @@
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 #import <SystemConfiguration/CaptiveNetwork.h>
-
 #import <net/if.h>
 
 @implementation HTIPHelper
