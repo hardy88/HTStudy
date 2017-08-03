@@ -9,6 +9,7 @@
 #import "HTFFMpegPlayerView.h"
 #include "libavcodec/avcodec.h"
 #include "libavformat/avformat.h"
+// 色彩转换、视频场景比例缩放
 #include "libswscale/swscale.h"
 
 
@@ -16,10 +17,11 @@
 @interface HTFFMpegPlayerView ()
 {
     UIImageView *imgView;
-    // 文件的格式信息
+    // 多媒体容器格式的封装、解封装工具
     AVFormatContext *formatContext;
     
     // 文件的详细编码信息，如视频的宽、高、编码类型等
+    // 解码器相关信息
     AVCodecContext *codecContext;
     
     // 帧数据
@@ -142,6 +144,7 @@
  */
 - (BOOL)comitFFmpegWithPath:(NSString*)moviePath
 {
+    // codec 用于各种类型声音、图像编解码
     AVCodec *pCodec;
     
     // 注册所有解码器
@@ -156,11 +159,11 @@
     if (openVideo == 0)
     {
         NSLog(@"打开视频成功");
-        // 读取文件包信息，获取流信息
+        // 获取容器信息
         int checkVideo = avformat_find_stream_info(formatContext, NULL);
         if (checkVideo >= 0)
         {
-            NSLog(@"数据流检查OK，数据完整");
+            NSLog(@"打开容器包成功，数据完整");
             // 查找音视频流、字幕流的stream_index， 找到流解码器
             firstVideoStream = av_find_best_stream(formatContext, AVMEDIA_TYPE_VIDEO, -1, -1, &pCodec, 0);
             if (firstVideoStream >= 0)
@@ -168,9 +171,11 @@
                 NSLog(@"成功找到第一帧数据");
                 // 获取视频编解码的上下文指针
                 avStream = formatContext ->streams[firstVideoStream];
+                // 解码器
                 codecContext = avStream ->codec;
                 
                 // 获取fps
+                // AVRational fps是分数来表示的   分子和分母都要大于0
                 if (avStream ->avg_frame_rate.den && avStream ->avg_frame_rate.num)
                 {
                     fps = av_q2d(avStream ->avg_frame_rate);
@@ -259,11 +264,13 @@
 - (BOOL)decodeFrame
 {
     int decodeFinished = 0;
-    while (!decodeFinished && av_read_frame(formatContext, &avPacket) >=0 )
+    
+    while (!decodeFinished && av_read_frame(formatContext, &avPacket) >=0 ) // 读取每一帧数据
     {
         NSLog(@"每帧数据%d",firstVideoStream);
         if (avPacket.stream_index == firstVideoStream)
         {
+            // 解码数据
             // 解码一帧视频数据，存储到AVFrame中
             avcodec_decode_video2(codecContext,avFrame, &decodeFinished, &avPacket);
         }
@@ -294,7 +301,7 @@
     {
         return nil;
     }
-    
+    // YUV数据转化为RGB数据
     sws_scale(imageCovertContext, avFrame->data, avFrame->linesize, 0, avFrame->height, avPicture.data, avPicture.linesize);
     sws_freeContext(imageCovertContext);
     
