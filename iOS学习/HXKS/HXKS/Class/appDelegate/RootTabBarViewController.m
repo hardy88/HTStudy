@@ -12,7 +12,7 @@
 #import "ApplyViewController.h"
 
 #import "ProfileViewController.h"
-#import "HXLoginViewController.h"
+#import "HXKSLoginViewController.h"
 
 
 

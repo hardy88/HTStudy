@@ -50,10 +50,15 @@
     
     UILabel *accountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headerImage.frame)+10, SC_WIDTH, 30)];
     accountLabel.textAlignment = NSTextAlignmentCenter;
-    accountLabel.text = @"账号：1552222333";
+    accountLabel.text = @"账号：";
     accountLabel.font = [UIFont systemFontOfSize:18];
     accountLabel.textColor = [UIColor whiteColor];
     [headerBaseView addSubview:accountLabel];
+    HXKSManager *manager = [HXKSManager manager];
+    if (manager.loginSuccess)
+    {
+        accountLabel.text = [NSString stringWithFormat:@"账号：%@",manager.userInfo.phonenum];
+    }
     
     
     

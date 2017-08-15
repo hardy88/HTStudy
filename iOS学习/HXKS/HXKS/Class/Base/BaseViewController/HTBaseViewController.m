@@ -150,7 +150,7 @@
 
 - (void)toBack
 {
-    [self.curNav toBakc];
+    [self.curNav toBack];
 }
 
 - (void)hideLeftItem

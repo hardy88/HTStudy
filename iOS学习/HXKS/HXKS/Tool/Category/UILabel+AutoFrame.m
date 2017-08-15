@@ -17,11 +17,11 @@
     self = [super init];
     if (self)
     {
-        self.font = [UIFont systemFontOfSize:14];
+        self.font = [UIFont systemFontOfSize:17];
         self.numberOfLines = 0;
         self.text = text;
         // withSize是最大
-        CGSize size = [self.text boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],} context:nil].size;
+        CGSize size = [self.text boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) options:NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],} context:nil].size;
         self.frame = CGRectMake(x, y, size.width, size.height);
     }
     return self;

@@ -13,7 +13,7 @@
 /**
  上一页
  */
-- (void)toBakc;
+- (void)toBack;
 
 /**
  下一页

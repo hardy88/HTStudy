@@ -24,18 +24,25 @@
 +(void)POST:(NSString*)URLString
  parameters:(id)parameters
     success:(void(^)(NSURLSessionDataTask *task,id responseObject))success
-    failure:(void(^)(NSURLSessionDataTask *task,NSError *error))failure
+    failure:(void(^)(NSURLSessionDataTask *task,id error))failure
 {
-    
+    NSMutableString *baseStr = [NSMutableString stringWithString:POST_BASE_URL];
+    [baseStr appendString:URLString];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    manager.requestSerializer.timeoutInterval = 5;
-    [manager.responseSerializer setStringEncoding:NSUTF8StringEncoding];
-    [manager POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        success(task,responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager POST:baseStr parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+         NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+        if ([dic[@"code"] isEqual:@(0)])
+        {
+            success(task,responseObject);
+        }
+        else
+        {
+            failure(task,dic[@"msg"]);
+        }
         
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(task,error);
     }];
 }

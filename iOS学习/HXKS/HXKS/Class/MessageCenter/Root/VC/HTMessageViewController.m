@@ -7,6 +7,7 @@
 //
 
 #import "HTMessageViewController.h"
+#import "HXKSApplyMessageViewController.h"
 
 // view
 #import "HTMessageCell.h"
@@ -115,7 +116,10 @@
 #pragma mark -- HTMessageHandleCell
 - (void)HTMessageHandleCellCheckDetailInfo
 {
-    HTMessageDetailViewControoler *vc = [[HTMessageDetailViewControoler alloc] init];
+//    HTMessageDetailViewControoler *vc = [[HTMessageDetailViewControoler alloc] init];
+//    [self.curNav toNext:vc];
+//    
+    HXKSApplyMessageViewController *vc = [[HXKSApplyMessageViewController alloc] init];
     [self.curNav toNext:vc];
 }
 

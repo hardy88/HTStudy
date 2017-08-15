@@ -96,4 +96,12 @@
  */
 +(UIColor *)returnTableViewBackGroundColor;
 
+
+/**
+ Cell背景色
+
+ @return <#return value description#>
+ */
++ (UIColor *)returnCellBackGroundColor;
+
 @end

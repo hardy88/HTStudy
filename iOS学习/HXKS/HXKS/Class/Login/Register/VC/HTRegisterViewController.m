@@ -17,13 +17,37 @@
 #import "HTValidateTextField.h"
 #import "HTConfirmTextField.h"
 
+// request
+#import "HXKSValidateRequest.h"
+#import "HXKSRegisterRequest.h"
+
+
+typedef NS_ENUM(NSInteger, HTTextFieldTag)
+{
+    HTKS_TFIEDL_TAG_PHONE = 1000,
+    HTKS_TFIEDL_TAG_VALIDATE = 1001,
+    HTKS_TFIEDL_TAG_SETPASSWORD = 1002,
+    HTKS_TFIEDL_TAG_CONFIRMPASSWORD = 1003
+};
+
 @interface HTRegisterViewController ()<UITextFieldDelegate>
 {
     UIScrollView *scView;
     
     // YES--被选中 NO--未被选中
     BOOL hasCheck;
+    
+    
 }
+// 手机号
+@property(nonatomic,copy)NSString *phoneStr;
+// 验证码
+@property(nonatomic,copy)NSString *validateStr;
+// 设置登录密码
+@property(nonatomic,copy)NSString *setPswStr;
+// 确认登录密码
+@property(nonatomic,copy)NSString *confirmPswStr;
+
 @end
 
 @implementation HTRegisterViewController
@@ -46,7 +70,7 @@
     [self.view addSubview:scView];
     
     // 手机号
-    HTCustomTextField *phoneTField = [[HTCustomTextField alloc] initWithFrame:CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 20, 50)];
+   HTCustomTextField *phoneTField = [[HTCustomTextField alloc] initWithFrame:CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 20, 50)];
     phoneTField.placeholder = @"输入手机号码";
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label.font = [UIFont fontWithName:@"iconfont" size:21];
@@ -55,6 +79,7 @@
     phoneTField.returnKeyType = UIReturnKeyDone;
     phoneTField.borderStyle = UITextBorderStyleNone;
     phoneTField.delegate =self;
+    phoneTField.tag = HTKS_TFIEDL_TAG_PHONE;
     [scView addSubview:phoneTField];
     
     // 验证码
@@ -70,6 +95,7 @@
     validateTField.borderStyle = UITextBorderStyleNone;
     validateTField.returnKeyType = UIReturnKeyDone;
     validateTField.delegate = self;
+    validateTField.tag = HTKS_TFIEDL_TAG_VALIDATE;
     [scView addSubview:validateTField];
 
     // 设置密码
@@ -81,7 +107,9 @@
     pswTField.leftView = pswLabel;
     pswTField.borderStyle = UITextBorderStyleNone;
     pswTField.returnKeyType = UIReturnKeyDone;
+    pswTField.secureTextEntry = YES;
     pswTField.delegate = self;
+    pswTField.tag = HTKS_TFIEDL_TAG_SETPASSWORD;
     [scView addSubview:pswTField];
     
     // 确认密码
@@ -93,7 +121,9 @@
     confirmPswTField.leftView = confirmpswLabel;
     confirmPswTField.borderStyle = UITextBorderStyleNone;
     confirmPswTField.returnKeyType = UIReturnKeyDone;
+    confirmPswTField.secureTextEntry = YES;
     confirmPswTField.delegate = self;
+    confirmPswTField.tag = HTKS_TFIEDL_TAG_CONFIRMPASSWORD;
     [scView addSubview:confirmPswTField];
     
     // 立即注册
@@ -146,7 +176,16 @@
 
 - (void)countDown:(UIButton*)but
 {
+    [self.view endEditing:YES];
+    
+    if (!self.phoneStr)
+    {
+        [HTHubProgress showHintMessage:@"请输入手机号!" onView:self.view];
+        return;
+    }
     __block NSInteger second = 60;
+    
+    __weak HTRegisterViewController *weakSelf = self;
     but.userInteractionEnabled = NO;
     dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
@@ -154,7 +193,8 @@
     dispatch_source_set_event_handler(timer, ^{
         //回调主线程，在主线程中操作UI
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (second >= 0) {
+            if (second >= 0)
+            {
                 [but setTitle:[NSString stringWithFormat:@"(%ld)重发验证码",second] forState:UIControlStateNormal];
                 second--;
             }
@@ -168,11 +208,61 @@
     });
     //启动源
     dispatch_resume(timer);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+           [weakSelf startValidateRequest];
+    });
 }
-
+- (void)startValidateRequest
+{
+    [HXKSValidateRequest startValidateRequestWithParameter:self.phoneStr success:^(NSURLSessionDataTask *task, id responseObj) {
+        
+        NSLog(@"成功的回调");
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *err) {
+        NSLog(@"失败的的回调");
+    }];
+}
 - (void)doneRegisterClick:(UIButton*)but
 {
+    [self.view endEditing:YES];
     
+    if ([ToolClass isEmpty:self.phoneStr])
+    {
+        [HTHubProgress showHintMessage:@"手机号不能为空！" onView:self.view];
+    }
+    else if ([ToolClass isEmpty:self.validateStr])
+    {
+         [HTHubProgress showHintMessage:@"请输入验证码！" onView:self.view];
+    }
+    else if ([ToolClass isEmpty:self.setPswStr])
+    {
+         [HTHubProgress showHintMessage:@"请设置登录密码！" onView:self.view];
+    }
+    else if (![self.confirmPswStr isEqual:self.setPswStr])
+    {
+         [HTHubProgress showHintMessage:@"确认密码和设置密码不一致！" onView:self.view];
+    }
+    else
+    {
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setValue:self.phoneStr forKey:@"phonenum"];
+        [dic setValue:self.validateStr forKey:@"yzm"];
+        [dic setValue:self.setPswStr forKey:@"password"];
+        [dic setValue:@"30.00" forKey:@"jd"];
+        [dic setValue:@"116.00" forKey:@"wd"];
+        [dic setValue:@"192.168.1.181" forKey:@"ipaddress"];
+        [dic setValue:@"123456" forKey:@"pushid"];
+        [dic setValue:@"02" forKey:@"dlsblx"];
+        
+        [HXKSRegisterRequest startRegisterRequestWithParameter:dic success:^(id responseObj) {
+            
+            DLog(@"注册成功");
+            
+        } failure:^(NSError *err) {
+           
+            DLog(@"注册失败");
+        }];
+    }
 }
 - (void)aggressButClick
 {
@@ -184,5 +274,36 @@
 {
     [self.view endEditing:YES];
     return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSInteger tag = textField.tag;
+    switch (tag)
+    {
+        case HTKS_TFIEDL_TAG_PHONE:
+        {
+            if ([ToolClass isPhoneNum:textField.text])
+            {
+                 self.phoneStr = textField.text;
+            }
+            else
+            {
+                [HTHubProgress showHintMessage:@"手机号格式不正确!" onView:self.view];
+            }
+        }
+        break;
+            
+        case HTKS_TFIEDL_TAG_VALIDATE:
+            self.validateStr = textField.text;
+            break;
+            
+        case HTKS_TFIEDL_TAG_SETPASSWORD:
+            self.setPswStr = textField.text;
+            break;
+            
+        case HTKS_TFIEDL_TAG_CONFIRMPASSWORD:
+            self.confirmPswStr = textField.text;
+            break;
+    }
 }
 @end

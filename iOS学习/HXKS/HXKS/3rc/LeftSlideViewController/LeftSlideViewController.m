@@ -26,7 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 /**
@@ -38,9 +37,10 @@
 - (instancetype)initWithLeftView:(UIViewController *)leftVC
                      andMainView:(UIViewController *)mainVC
 {
-    if(self = [super init]){
-        self.speedf = vSpeedFloat;
+    if(self = [super init])
+    {
         
+        self.speedf = vSpeedFloat;
         self.leftVC = leftVC;
         self.mainVC = mainVC;
         
@@ -54,26 +54,8 @@
         //
         [self.view addSubview:self.leftVC.view];
         [self.view addSubview:self.mainVC.view];
-        
-//        //蒙版
-//        UIView *view = [[UIView alloc] init];
-//        view.frame = self.leftVC.view.bounds;
-//        view.alpha = 0.5;
-//        self.contentView = view;
-//        [self.leftVC.view addSubview:view];
-//        
-//        //获取左侧tableview
-//        for (UIView *obj in self.leftVC.view.subviews)
-//        {
-//            if ([obj isKindOfClass:[UITableView class]])
-//            {
-//                self.leftTableview = (UITableView *)obj;
-//            }
-//        }
-//        self.leftTableview.backgroundColor = [UIColor clearColor];
-//        self.leftTableview.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-//     
-//        self.closed = YES;//初始时侧滑窗关闭
+
+        self.closed = YES;//初始时侧滑窗关闭
         
     }
     return self;
@@ -186,9 +168,9 @@
         tap.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
         self.closed = YES;
         
-//        self.leftTableview.center = CGPointMake(kLeftCenterX, kScreenHeight * 0.5);
-//        self.leftTableview.transform = CGAffineTransformScale(CGAffineTransformIdentity,kLeftScale,kLeftScale);
-        self.contentView.alpha = kLeftAlpha;
+        self.contentView.alpha = 0;
+        [self.contentView removeFromSuperview];
+        self.contentView = nil;
         
         [UIView commitAnimations];
         _scalef = 0;
@@ -207,12 +189,12 @@
     self.mainVC.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
     self.mainVC.view.center = CGPointMake(kScreenWidth / 2, kScreenHeight / 2);
     self.closed = YES;
-    
-//    self.leftTableview.center = CGPointMake(kScreenWidth / 2, kScreenHeight * 0.5);
-
-    self.contentView.alpha = kLeftAlpha;
-    
     [UIView commitAnimations];
+    
+    self.contentView.alpha = 0;
+//    [self.contentView removeFromSuperview];
+//    self.contentView = nil;
+    
     [self removeSingleTap];
 }
 
@@ -225,12 +207,16 @@
     self.mainVC.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,kMainPageScale,kMainPageScale);
     self.mainVC.view.center = kMainPageCenter;
     self.closed = NO;
-    
-//    self.leftTableview.center = CGPointMake(kScreenWidth  * 0.5, kScreenHeight * 0.5);
-//    self.leftTableview.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
-    self.contentView.alpha = 1;
-    
     [UIView commitAnimations];
+    
+    //蒙版
+    UIView *view = [[UIView alloc] init];
+    view.frame = CGRectMake(0, 0, SC_WIDTH, SC_HEIGHT);
+    view.alpha = 0.5;
+    view.backgroundColor = [UIColor blackColor];
+    self.contentView = view;
+    [self.mainVC.view addSubview:view];
+    
     [self disableTapButton];
 }
 

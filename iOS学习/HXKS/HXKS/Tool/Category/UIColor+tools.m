@@ -123,5 +123,9 @@
     // 灰色
     return [UIColor colorWithHexString:@"#F6F6F6"];
 }
++ (UIColor *)returnCellBackGroundColor
+{
+    return [UIColor colorWithHexString:@"#ECEBF3"];
+}
 
 @end

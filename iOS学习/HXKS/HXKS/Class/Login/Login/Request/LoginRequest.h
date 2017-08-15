@@ -28,7 +28,7 @@
 + (void)loginWithUserName:(NSString*)userName
                  password:(NSString*)password
                   success:(void (^)(NSURLSessionDataTask *task,id response))success
-                  failure:(void (^)(NSURLSessionDataTask *task,NSError *error))fail;
+                  failure:(void (^)(NSURLSessionDataTask *task,id error))fail;
 
 
 

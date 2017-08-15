@@ -12,6 +12,14 @@
 
 @interface ToolClass : NSObject
 
+/**
+ 判断一个对象是否为手机号
+ 
+ @param phoneStr 手机号
+ @return YES-是手机号 NO-不是手机号
+ */
++ (BOOL)isPhoneNum:(NSString*)phoneStr;
+
 
 /**
  判断一个对象是否为空

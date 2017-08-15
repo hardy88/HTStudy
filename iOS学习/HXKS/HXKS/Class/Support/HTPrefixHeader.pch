@@ -14,11 +14,25 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "UIColor+tools.h"
+#import "HTHubProgress.h"
+#import "ToolClass.h"
+#import "HTNetwork.h"
+#import "HXKSRequestUrl.h"
+#import "HXKSManager.h"
 #endif
 
 
 #define SC_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SC_HEIGHT [UIScreen mainScreen].bounds.size.height
+// SSHKeychain 唯一标识符
+#define KEYCHAIN_SERVICENAME @"com.hxks.htxx.SSKeychain"
+
+
+#ifdef DEBUG
+# define DLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+# define DLog(...);
+#endif
 
 
 #endif /* HTPrefixHeader_pch */

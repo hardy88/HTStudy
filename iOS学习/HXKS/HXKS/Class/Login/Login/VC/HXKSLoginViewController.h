@@ -13,6 +13,6 @@
 
 #import "HTBaseViewController.h"
 
-@interface HXLoginViewController : HTBaseViewController
+@interface HXKSLoginViewController : HTBaseViewController
 
 @end

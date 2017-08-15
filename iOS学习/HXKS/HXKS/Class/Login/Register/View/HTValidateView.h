@@ -15,7 +15,10 @@
 
 @interface HTValidateView : UIView
 
+
+
 - (instancetype _Nullable )initWithFrame:(CGRect)frame andTitle:(NSString *_Nullable)title;
+
 
 
 - (void)addTarget:(nullable id)target action:(SEL _Nullable )action forControlEvents:(UIControlEvents)controlEvents;

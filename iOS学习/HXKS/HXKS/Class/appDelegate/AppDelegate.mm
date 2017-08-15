@@ -11,7 +11,8 @@
 #import "ProfileViewController.h"
 #import "HTHomeViewCotroller.h"
 #import "LeftSlideViewController.h"
-#import "HXLoginViewController.h"
+#import "HXKSLoginViewController.h"
+#import "HTNavigationController.h"
 
 
 // baiduMap
@@ -24,11 +25,14 @@
 #import <BaiduMapAPI_Radar/BMKRadarComponent.h>//引入周边雷达功能所有的头文件
 #import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
 
+// manager
+#import "HXKSManager.h"
 
-@interface AppDelegate ()<CLLocationManagerDelegate>
+
+@interface AppDelegate ()<BMKLocationServiceDelegate>
 {
     BMKMapManager *_mapManager;
-     CLLocationManager * locationManager; // 使用系统原生定位
+    BMKLocationService *locService; // 百度定位
 }
 @end
 
@@ -39,19 +43,19 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    
+    HXKSManager *manager = [HXKSManager manager];
+    manager.releaseMode = NO;
     
     ProfileViewController *side = [[ProfileViewController alloc] init];
     HTHomeViewCotroller *content = [[HTHomeViewCotroller alloc] init];
     self.mainVC = [[HTNavigationController alloc] initWithRootViewController:content];
     self.LeftSlideVC = [[LeftSlideViewController alloc] initWithLeftView:side andMainView:self.mainVC];
+    self.LeftSlideVC.closed = YES;
     [self.LeftSlideVC setPanEnabled:NO];
     
-    
-    HXLoginViewController *vc = [[HXLoginViewController alloc] init];
+    HXKSLoginViewController *vc = [[HXKSLoginViewController alloc] init];
     HTNavigationController *nvc = [[HTNavigationController alloc] initWithRootViewController:vc];
-//    self.window.rootViewController = nvc ;
-    self.window.rootViewController = self.LeftSlideVC ;
+    self.window.rootViewController =nvc ;
     [self.window makeKeyAndVisible];
     
     _mapManager = [[BMKMapManager alloc]init];
@@ -68,29 +72,26 @@
 // 开始定位
 - (void)startLocation
 {
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters; // 设置进度
-    locationManager.distanceFilter  = kCLDistanceFilterNone;
-    [locationManager startUpdatingLocation];  // 开始定位
-    [locationManager startUpdatingHeading];  // 开始更新方向
+    locService = [[BMKLocationService alloc] init];
+    locService.delegate = self;
+    [locService startUserLocationService];
+}
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    [locService stopUserLocationService];
+    DLog(@"百度地图定位成功");
+}
+/**
+ *定位失败后，会调用此函数
+ *@param error 错误号
+ */
+- (void)didFailToLocateUserWithError:(NSError *)error
+{
+    DLog(@"%@百度地图定位失败@",error);
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    
-}
-
-// 定位获取到数据后
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    CLLocation *currentLocation = [locations lastObject];
-    CLLocationCoordinate2D coor = currentLocation.coordinate;
-    self.curLatitude =  [NSString stringWithFormat:@"%f",coor.latitude];
-    self.curLongtitude = [NSString stringWithFormat:@"%f",coor.longitude];
-    [locationManager stopUpdatingHeading];
-    [locationManager stopUpdatingLocation];
-}
 
 
 @end

@@ -8,7 +8,7 @@
 
 // vc
 #import "HTHomeViewCotroller.h"
-#import "HXLoginViewController.h"
+#import "HXKSLoginViewController.h"
 #import "HTOpenDoneViewController.h"
 #import "HTOpenFailViewController.h"
 #import "HTMessageViewController.h"
@@ -283,7 +283,7 @@
     {
         case 0: // 位置导航
         {
-            NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:30.596758,114.311843|name=目的地&mode=driving&coord_type=gcj02"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:30.596758,114.311843|name=目的地&mode=driving&coord_type=bd09ll"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://map/"]])
             {

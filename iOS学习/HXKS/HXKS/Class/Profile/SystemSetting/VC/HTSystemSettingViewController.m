@@ -8,11 +8,14 @@
 
 #import "HTSystemSettingViewController.h"
 
-#import "HXLoginViewController.h"
+#import "HXKSLoginViewController.h"
 #import "AppDelegate.h"
 
 // view
 #import "HTSystemSettingCell.h"
+
+// Request
+#import "HXKSLogoutRequest.h"
 
 @interface HTSystemSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -72,9 +75,21 @@
 
 - (void)logoutClick:(UIButton*)but
 {
-//    AppDelegate *tempAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    HXLoginViewController *vc = [[HXLoginViewController alloc] init];
-//    tempAppDelegate.window.rootViewController = vc;
+
+    [HTHubProgress showWaitMessage:@"正在登出。。。" onView:self.view];
+    [HXKSLogoutRequest hxksLogoutRequest:nil success:^(NSURLSessionDataTask *task, id response) {
+        
+        [HTHubProgress hideHub:self.view];
+        HXKSLoginViewController *vc = [[HXKSLoginViewController alloc] init];
+        [self.curNav toNext:vc];
+        
+    } failure:^(NSURLSessionDataTask *task, id err) {
+        
+        [HTHubProgress hideHub:self.view];
+        [HTHubProgress showHintMessage:err onView:self.view];
+        
+    }];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
