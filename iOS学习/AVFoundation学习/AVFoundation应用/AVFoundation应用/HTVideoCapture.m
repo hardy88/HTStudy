@@ -21,8 +21,6 @@
 // 处理事物的队列
 @property (nonatomic,strong) dispatch_queue_t  sessionQueue;
 
-
-
 @end
 
 
@@ -74,7 +72,7 @@
         NSLog(@"需要真机！！");
         return;
     }
-    _sessionQueue =  dispatch_queue_create("com.hardy.as", DISPATCH_QUEUE_SERIAL);
+    _sessionQueue =  dispatch_queue_create("com.hardy.serialQueue", DISPATCH_QUEUE_SERIAL);
     
     // 视频输出数据
     _videoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
@@ -105,6 +103,7 @@
     self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
     
+    // 添加预览层才能显示
     self.previewLayer.frame = vDelegate.view.bounds;
     [vDelegate.view.layer addSublayer:self.previewLayer];
     

@@ -34,8 +34,8 @@
 {
     if (video.videoConnection == connection)
     {
-        NSLog(@"");
-        NSLog(@"");
+        // 可以将获取到的CMSampleBufferRef 进行H264编码
+        
     }
 }
 
