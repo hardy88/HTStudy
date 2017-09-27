@@ -29,7 +29,7 @@
 
 // ******************************    VideoTool   ***************************** //
 @property (nonatomic,assign)  VTDecompressionSessionRef decodeSession;
-@property (nonatomic,assign)  CMFormatDescriptionRef decodeFormatDescription;
+@property (nonatomic,assign)  CMFormatDescriptionRef decodeFormatDescriptionRef;
 @property (nonatomic,assign)  uint8_t *mSPS;
 @property (nonatomic,assign)  long mSPSSize;
 @property (nonatomic,assign)  uint8_t *mPPS;
@@ -73,9 +73,8 @@ const uint8_t lyStartCode[4] = {0, 0, 0, 1};
 {
     if ( !_inputStream )  return;
     
-    // 读数据包
+    // 读数据包， 这是准备工作
     [self gotoReadPacket];
-    
     
     if (_packetBuffer == NULL || _packetSize == 0)
     {
@@ -91,8 +90,8 @@ const uint8_t lyStartCode[4] = {0, 0, 0, 1};
         return;
     }
     
-    // 开始解包
-    [self startDecodeWithPacket];
+    // 开始解包， 这才是真正开始解码
+    [self gotoDecodeWithPacket];
     
 }
 
@@ -149,7 +148,7 @@ const uint8_t lyStartCode[4] = {0, 0, 0, 1};
       }
 }
 
-- (void)startDecodeWithPacket
+- (void)gotoDecodeWithPacket
 {
     uint32_t nalSize = (uint32_t)(_packetSize - 4);
     uint32_t *pNalSize = (uint32_t *)_packetBuffer;
@@ -161,38 +160,134 @@ const uint8_t lyStartCode[4] = {0, 0, 0, 1};
     switch (nalType)
     {
         case 0x05:   // NAL type is IDR Frame
-            
+        {
+            [self videoToolInit];
+            pixelBuffer = [self deCodeH264];
+        }
             break;
         
         case 0x07:  // NAL type is SPS
-            
+        {
+            _mSPSSize = _packetSize - 4;
+            _mSPS = malloc(_mSPSSize);
+            memcpy(_mSPS, _packetBuffer + 4, _mSPSSize);
+        }
             break;
             
         case 0x08:  // NAL type is PPS
-            
+        {
+            _mSPSSize = _packetSize - 4;
+            _mPPS = malloc(_mSPSSize);
+            memcpy(_mSPS, _packetBuffer + 4, _mSPSSize);
+        }
             break;
             
         default:  // NAL type is B/P Frame
+        {
+            pixelBuffer = [self deCodeH264];
+        }
             break;
     }
     if (pixelBuffer)
     {
-        // pixelBuffer 传入OPENGL进行渲染
+        // pixelBuffer回调函数 传入OPENGL进行渲染
         
         // 释放pixelBuffer
         CVPixelBufferRelease(pixelBuffer);
     }
 }
 
+/****************************** VideoTool方法 ************************************/
 #pragma mark --- VideoTool 相关方法
+// 解码的回调
+void didFinishDecodeH264(void *decompressionOutputRefCon,
+                         void *sourceFrameRefCon,
+                         OSStatus status,
+                         VTDecodeInfoFlags infoFlags,
+                         CVImageBufferRef pixelBuffer,
+                         CMTime presentationTimeStamp,
+                         CMTime presentationDuration)
+{
+    CVPixelBufferRef *outputPixelBuffer = (CVPixelBufferRef *)sourceFrameRefCon;
+    *outputPixelBuffer = CVPixelBufferRetain(pixelBuffer);
+}
+
+
 // 初始化VideoTool
 - (void) videoToolInit
 {
     if (_decodeSession)  return;
     
     // 创建 session
-    const uint8_t * parameter[2] = {_mSPS,_mSPS};
+    const uint8_t * parameterSetPointers[2] = {_mSPS,_mSPS};
+    const size_t parameterSetSizes[2] = {_mSPSSize, _mPPSSize};
+    ;
+     //  创建Session
+    OSStatus status = CMVideoFormatDescriptionCreateFromH264ParameterSets(kCFAllocatorDefault, 2, parameterSetPointers, parameterSetSizes, 4, &_decodeFormatDescriptionRef);
     
+    // 创建成功
+    if (status == noErr)
+    {
+        CFDictionaryRef attrs = NULL;
+        const void *keys[] = {kCVPixelBufferPixelFormatTypeKey};
+        
+        uint32_t v = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
+        const void *values[] = {CFNumberCreate(NULL, kCFNumberSInt32Type, &v)};
+        attrs = CFDictionaryCreate(NULL, keys, values, 1, NULL, NULL);
+        
+        // 设置回调
+        VTDecompressionOutputCallbackRecord callBackRecord;
+        callBackRecord.decompressionOutputCallback = nil;
+        callBackRecord.decompressionOutputRefCon = didFinishDecodeH264;
+        
+        // 开始创建
+        status = VTDecompressionSessionCreate(kCFAllocatorDefault, _decodeFormatDescriptionRef, NULL, attrs, &callBackRecord, &_decodeSession);
+        CFRelease(attrs);
+    }
+    else
+    {
+        NSLog(@"初始化Session失败!!!!!");
+    }
+}
+
+- (CVPixelBufferRef )deCodeH264
+{
     
+    CVPixelBufferRef outputPixelBuffer = NULL;
+    if (_decodeSession)  // 如果session已经被创建
+    {
+        CMBlockBufferRef blockBuffer = NULL;
+        OSStatus status = CMBlockBufferCreateWithMemoryBlock(kCFAllocatorDefault, (void *)_packetBuffer, _packetSize, kCFAllocatorNull, NULL, 0, _packetSize, 0, &blockBuffer);
+        
+        if (status == kCMBlockBufferNoErr)
+        {
+            CMSampleBufferRef sampleBuffer = NULL;
+            const size_t sampleSizeArray[] = {_packetSize};
+            status = CMSampleBufferCreateReady(kCFAllocatorDefault, blockBuffer, _decodeFormatDescriptionRef, 1, 0, NULL, 1, sampleSizeArray, &sampleBuffer);
+            if (status == kCMBlockBufferNoErr && sampleBuffer)
+            {
+                VTDecodeFrameFlags flags = 0;
+                VTDecodeInfoFlags flageOut = 0;
+                
+                OSStatus decodeStatus = VTDecompressionSessionDecodeFrame(_decodeSession, sampleBuffer, flags, &outputPixelBuffer, &flageOut);
+                
+                if (decodeStatus == kVTInvalidSessionErr)
+                {
+                    NSLog(@"invalid session");
+                }
+                else if (decodeStatus == kVTVideoDecoderBadDataErr)
+                {
+                     NSLog(@"decode failed");
+                }
+                else if (decodeStatus != noErr)
+                {
+                     NSLog(@"decode failed");
+                }
+                CFRelease(sampleBuffer);
+            }
+            CFRelease(blockBuffer);
+        }
+    }
+    return outputPixelBuffer;
 }
 @end
