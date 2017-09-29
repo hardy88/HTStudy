@@ -8,6 +8,10 @@
 
 #import "HTRequestService.h"
 
+@interface HTRequestService ()<NSURLSessionDelegate>
+
+@end
+
 @implementation HTRequestService
 
 // POST
@@ -80,6 +84,9 @@
         return;
     }
     
+    // 设置请求数据的content-type
+    //  [reuqest setValue:contentType forHTTPHeaderField:@"Content-Type"];
+    
     // NSURLSessionConfiguration 设置请求超时时间， 请求头等信息
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     // 设置请求超时为30秒钟
@@ -90,7 +97,7 @@
     configuration.HTTPAdditionalHeaders = @{@"Accept": @"application/json,text/html,text/plain",
                                             @"Accept-Language": @"en"};
     // 创建NSURLSession
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     // 发送Request
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
        
@@ -127,6 +134,81 @@
         }
     }];
     [task resume];
+}
+#pragma mark -- NSURLSessionDelegate
+// 客户端处理，是否需要安装证书
+// NSURLAuthenticationChallenge 中的protectionSpace对象存放了服务器返回的证书信息
+// 如何处理证书?(使用、忽略、拒绝。。)
+/*
+ 
+ NSURLSessionAuthChallengeUseCredential 使用证书
+ NSURLSessionAuthChallengePerformDefaultHandling 忽略证书 默认的做法
+ NSURLSessionAuthChallengeCancelAuthenticationChallenge 取消请求,忽略证书
+ NSURLSessionAuthChallengeRejectProtectionSpace 拒绝,忽略证书
+ 
+ */
+// 只有HTTPS请求才会回调这个函数
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler
+{
+    NSLog(@"didReceiveChallenge ");
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) // 服务器信任证书
+    {
+        NSLog(@"server ---------");
+        NSString *host = challenge.protectionSpace.host;
+        NSLog(@"%@", host);
+        NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+    }
+    else if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodClientCertificate]) // 输入密码的证书，校验自己的证书
+    {
+        //客户端证书认证
+        //TODO:设置客户端证书认证
+        // load cert
+        NSLog(@"client");
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"client"ofType:@"p12"];
+        NSData *p12data = [NSData dataWithContentsOfFile:path];
+        CFDataRef inP12data = (__bridge CFDataRef)p12data;
+        SecIdentityRef myIdentity;
+        OSStatus status = [self extractIdentity:inP12data toIdentity:&myIdentity];
+        if (status != 0)
+        {
+            return;
+        }
+        SecCertificateRef myCertificate;
+        SecIdentityCopyCertificate(myIdentity, &myCertificate);
+        const void *certs[] = { myCertificate };
+        CFArrayRef certsArray =CFArrayCreate(NULL, certs,1,NULL);
+        NSURLCredential *credential = [NSURLCredential credentialWithIdentity:myIdentity certificates:(__bridge NSArray*)certsArray persistence:NSURLCredentialPersistencePermanent];
+        //         网上很多错误代码如上，正确的为：
+        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+    }
+}
+
+- (OSStatus)extractIdentity:(CFDataRef)inP12Data toIdentity:(SecIdentityRef*)identity {
+    OSStatus securityError = errSecSuccess;
+    CFStringRef password = CFSTR("123456");
+    const void *keys[] = { kSecImportExportPassphrase };
+    const void *values[] = { password };
+    CFDictionaryRef options = CFDictionaryCreate(NULL, keys, values, 1, NULL, NULL);
+    CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
+    securityError = SecPKCS12Import(inP12Data, options, &items);
+    if (securityError == 0)
+    {
+        CFDictionaryRef ident = CFArrayGetValueAtIndex(items,0);
+        const void *tempIdentity = NULL;
+        tempIdentity = CFDictionaryGetValue(ident, kSecImportItemIdentity);
+        *identity = (SecIdentityRef)tempIdentity;
+    }
+    else
+    {
+        NSLog(@"clinet.p12 error!");
+    }
+    
+    if (options)
+    {
+        CFRelease(options);
+    }
+    return securityError;
 }
 
 @end
