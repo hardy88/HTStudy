@@ -40,4 +40,24 @@
 + (CGSize)textCgsize:(NSString*)text FontSize:(CGFloat)fontSize;
 
 
+/**
+ 判断Unicode编码的字符串中是否包含中文
+ 
+ unichar ch = [string characterAtIndex:i];
+ if (0x4e00 < ch  && ch < 0x9fff)
+ {
+ //含有中文
+ }
+ 不能判断 。
+
+ @param str 输入字符串
+ @return YES-包含中文，NO - 不含中文
+ */
++ (BOOL)containsChinese:(NSString *)str;
+
+
+/**
+ 打开系统设置
+ */
++ (void)openSystemSetting;
 @end

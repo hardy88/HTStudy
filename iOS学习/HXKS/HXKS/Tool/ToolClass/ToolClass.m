@@ -45,4 +45,37 @@
     return CGSizeZero;
 }
 
++ (BOOL)containsChinese:(NSString *)str
+{
+    for (int i = 0; i < str.length; i++)
+    {
+        unichar ch = [str characterAtIndex:i];
+        if ((int)(ch)>127)
+        {
+            return YES;
+        }
+        else if((ch >64)&&(ch <91)){
+            NSLog(@"字符串中含有大写英文字母");
+            return NO;
+        }else if((ch >96)&&( ch<123)){
+            NSLog(@"字符串中含有小写英文字母");
+            return NO;
+        }else if((ch>47)&&(ch<58)){
+            NSLog(@"字符串中含有数字");
+            return NO;
+        }else{
+            NSLog(@"字符串中含有非法字符");
+            return NO;
+        }
+    }
+    return NO;
+}
++ (void)openSystemSetting
+{
+    NSURL *settingUrl = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if ([[UIApplication sharedApplication] canOpenURL:settingUrl])
+    {
+        [[UIApplication sharedApplication] openURL:settingUrl];
+    }
+}
 @end
