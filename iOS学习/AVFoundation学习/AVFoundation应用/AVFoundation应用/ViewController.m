@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "HTVideoCapture.h"
 #import <AVFoundation/AVFoundation.h>
+#import "UIImage+CMSampleBuffer.h"
+
+#import <objc/message.h>
 
 
 @interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
@@ -35,6 +38,12 @@
     if (video.videoConnection == connection)
     {
         // 可以将获取到的CMSampleBufferRef 进行H264编码
+        
+        NSLog(@"%@",sampleBuffer);
+        
+        UIImage *image = [UIImage getImageFromCMSampleBuffer:sampleBuffer];
+        
+        NSLog(@"%@",image);
         
     }
 }
