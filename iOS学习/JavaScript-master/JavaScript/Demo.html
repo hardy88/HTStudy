@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div>
+        <h2>JS与OC交互</h2>
+       <input type="button" value="JS调用OC-1" onclick="call()">
+    </div>
+
+<script>
+    
+    var call = function()
+    {
+        var callInfo = JSON.stringify('JS调用OC');
+        callBackToOC(callInfo);
+    }
+
+    var ocClick = function (str)
+    {
+        alert(str);
+    }
+
+</script>
+</body>
+</html>

@@ -19,6 +19,8 @@
 		432DE6DF1F6233F300173E1D /* HTVideoAndAudioCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 432DE6DE1F6233F300173E1D /* HTVideoAndAudioCapture.m */; };
 		432DE6E21F62345900173E1D /* HTEncodeH264.m in Sources */ = {isa = PBXBuildFile; fileRef = 432DE6E11F62345900173E1D /* HTEncodeH264.m */; };
 		432DE6E51F623B3100173E1D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432DE6E41F623B3100173E1D /* VideoToolbox.framework */; };
+		4356F6B11FA80B9700ECE495 /* UIImage+CMSampleBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4356F6B01FA80B9700ECE495 /* UIImage+CMSampleBuffer.m */; };
+		4356F6BA1FA9A01100ECE495 /* HTUIImageToVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4356F6B91FA9A01100ECE495 /* HTUIImageToVideo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,10 @@
 		432DE6E01F62345900173E1D /* HTEncodeH264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEncodeH264.h; sourceTree = "<group>"; };
 		432DE6E11F62345900173E1D /* HTEncodeH264.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEncodeH264.m; sourceTree = "<group>"; };
 		432DE6E41F623B3100173E1D /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		4356F6AF1FA80B9700ECE495 /* UIImage+CMSampleBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+CMSampleBuffer.h"; sourceTree = "<group>"; };
+		4356F6B01FA80B9700ECE495 /* UIImage+CMSampleBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CMSampleBuffer.m"; sourceTree = "<group>"; };
+		4356F6B81FA9A01100ECE495 /* HTUIImageToVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTUIImageToVideo.h; sourceTree = "<group>"; };
+		4356F6B91FA9A01100ECE495 /* HTUIImageToVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTUIImageToVideo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,10 @@
 				432DE6DB1F61279000173E1D /* HTVideoCapture.m */,
 				432DE6DD1F6233F300173E1D /* HTVideoAndAudioCapture.h */,
 				432DE6DE1F6233F300173E1D /* HTVideoAndAudioCapture.m */,
+				4356F6AF1FA80B9700ECE495 /* UIImage+CMSampleBuffer.h */,
+				4356F6B01FA80B9700ECE495 /* UIImage+CMSampleBuffer.m */,
+				4356F6B81FA9A01100ECE495 /* HTUIImageToVideo.h */,
+				4356F6B91FA9A01100ECE495 /* HTUIImageToVideo.m */,
 				432DE6CC1F61271600173E1D /* Main.storyboard */,
 				432DE6CF1F61271600173E1D /* Assets.xcassets */,
 				432DE6D11F61271600173E1D /* LaunchScreen.storyboard */,
@@ -191,8 +201,10 @@
 				432DE6CB1F61271600173E1D /* ViewController.m in Sources */,
 				432240A71F74F0EA0006D35A /* HTDecodeH264.m in Sources */,
 				432DE6DC1F61279000173E1D /* HTVideoCapture.m in Sources */,
+				4356F6B11FA80B9700ECE495 /* UIImage+CMSampleBuffer.m in Sources */,
 				432DE6C81F61271600173E1D /* AppDelegate.mm in Sources */,
 				432DE6C51F61271600173E1D /* main.m in Sources */,
+				4356F6BA1FA9A01100ECE495 /* HTUIImageToVideo.m in Sources */,
 				432DE6DF1F6233F300173E1D /* HTVideoAndAudioCapture.m in Sources */,
 				432240AA1F74F1CA0006D35A /* HTPlayer.m in Sources */,
 				432DE6E21F62345900173E1D /* HTEncodeH264.m in Sources */,
@@ -316,6 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LJ9V4VVQMT;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "AVFoundation应用/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -329,6 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LJ9V4VVQMT;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "AVFoundation应用/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
