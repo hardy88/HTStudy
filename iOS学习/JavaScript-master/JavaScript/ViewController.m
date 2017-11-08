@@ -32,6 +32,8 @@
     [ocBut addTarget:self action:@selector(butClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:ocBut];
     
+    
+    
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
