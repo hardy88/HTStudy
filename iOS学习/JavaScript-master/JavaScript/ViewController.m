@@ -19,6 +19,11 @@
     self.webView.delegate = self;
     [self.view addSubview:self.webView];
     
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"Demo" ofType:@"html"];
+    NSURL* url = [NSURL fileURLWithPath:path];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url] ;
+    [self.webView loadRequest:request];
+    
     UIButton *ocBut = [UIButton buttonWithType:UIButtonTypeCustom];
     ocBut.backgroundColor = [UIColor greenColor];
     ocBut.frame = CGRectMake(10, [UIScreen mainScreen].bounds.size.height - 80, [UIScreen mainScreen].bounds.size.width - 20, 30);
@@ -27,10 +32,6 @@
     [ocBut addTarget:self action:@selector(butClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:ocBut];
     
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"Demo" ofType:@"html"];
-    NSURL* url = [NSURL fileURLWithPath:path];
-    NSURLRequest* request = [NSURLRequest requestWithURL:url] ;
-    [self.webView loadRequest:request];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
