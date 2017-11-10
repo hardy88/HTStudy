@@ -37,11 +37,14 @@
     
     // GLFloat类型的数组
     // 设置 顶点位置和顶点颜色
-    static GLfloat showData[24] = {
-          0,    0.5f,   0,   1,   0,   0,
-//        -0.5,    0.5f,   0,   1,   0,   0,
-        -0.5f,  -0.5f,  0,   1,   0,   0,
-        0.5f,    -0.5f,  0,   1,   0,
+    static GLfloat showData[36] = {
+        -0.5,   0.5f,  0,   1,  0,  0,
+        -0.5f,  -0.5f,  0,  1,  0,  0,
+        0.5f,   -0.5f,  0,  1,  0,  0,
+        
+        0.5,    -0.5f, 0,   0,  0,  1,
+        0.5f,  0.5f,  0,    0,  0,  1,
+        -0.5f,   0.5f,  0,  0,  0,  1,
     };
     // 将数据拷贝到显存中
     GLuint buffer;
@@ -105,6 +108,6 @@
     [self.baseEffect prepareToDraw];
     // 开始渲染
     // 渲染图形  从第几个数据开始渲染  共渲染3个数据。。。注意下标是从0开始的
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 6);
 }
 @end
