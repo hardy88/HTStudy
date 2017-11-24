@@ -171,9 +171,8 @@
                 NSLog(@"成功找到第一帧数据");
                 // 获取视频编解码的上下文指针
                 avStream = formatContext ->streams[firstVideoStream];
-                // 解码器
+                // 解码器信息
                 codecContext = avStream ->codec;
-                
                 // 获取fps
                 // AVRational fps是分数来表示的   分子和分母都要大于0
                 if (avStream ->avg_frame_rate.den && avStream ->avg_frame_rate.num)
