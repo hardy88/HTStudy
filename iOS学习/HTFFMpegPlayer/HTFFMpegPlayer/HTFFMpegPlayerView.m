@@ -24,13 +24,13 @@
     // 解码器相关信息
     AVCodecContext *codecContext;
     
-    // 帧数据
+    // 解码后的帧数据 --》  YUV数据  PCM数据
     AVFrame *avFrame;
     
     // 流数据
     AVStream *avStream;
     
-    // 音视频帧被放入Packet中
+    // 解码前的帧数据
     AVPacket avPacket;
     
     //
@@ -268,7 +268,7 @@
     while (!decodeFinished && av_read_frame(formatContext, &avPacket) >=0 ) // 读取每一帧数据
     {
         NSLog(@"每帧数据%d",firstVideoStream);
-        if (avPacket.stream_index == firstVideoStream)
+        if (avPacket.stream_index == firstVideoStream) // 解码前的数据
         {
             // 解码数据
             // 解码一帧视频数据，存储到AVFrame中
