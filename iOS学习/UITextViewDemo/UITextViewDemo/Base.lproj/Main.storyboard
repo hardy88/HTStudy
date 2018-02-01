@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="请输入文字" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="epv-rO-iM7">
+                                <rect key="frame" x="10" y="100" width="355" height="30"/>
+                                <color key="backgroundColor" red="0.69715822469622757" green="0.93537883573976177" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WoA-3i-BT7"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入文字" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gdk-tf-cB1">
+                                <rect key="frame" x="10" y="140" width="355" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.64693774120000003" blue="0.70926780909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Vg7-eV-veY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/10字" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9c-2I-3Nv">
+                                <rect key="frame" x="265" y="180" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.83902959278228839" green="1" blue="0.29672968298530822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Vgi-qP-hkZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="aqC-oq-9Pj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="d9c-2I-3Nv" firstAttribute="top" secondItem="gdk-tf-cB1" secondAttribute="bottom" constant="10" id="6mc-Ih-CCw"/>
+                            <constraint firstItem="gdk-tf-cB1" firstAttribute="top" secondItem="epv-rO-iM7" secondAttribute="bottom" constant="10" id="9ue-T4-S7T"/>
+                            <constraint firstItem="epv-rO-iM7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="JoL-cr-Rca"/>
+                            <constraint firstItem="gdk-tf-cB1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="MAU-6l-hvS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gdk-tf-cB1" secondAttribute="trailing" constant="10" id="QLc-yF-6jL"/>
+                            <constraint firstItem="epv-rO-iM7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Wqe-6W-bXi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="epv-rO-iM7" secondAttribute="trailing" constant="10" id="WrC-Yx-NqV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d9c-2I-3Nv" secondAttribute="trailing" constant="10" id="yvX-j5-8O4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="showCountLabel" destination="d9c-2I-3Nv" id="0Yp-mb-nlT"/>
+                        <outlet property="tFiled" destination="epv-rO-iM7" id="FUg-wZ-fbz"/>
+                        <outlet property="tView" destination="gdk-tf-cB1" id="Ywc-e8-rd7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
